@@ -255,6 +255,7 @@ class ServerlessEsLogsPlugin {
 
     _.merge(template, permissionTemplate);
     
+    console.log(JSON.stringify(permissionTemplate, null, 4))
   }
 
   private configureLogRetention(retentionInDays: number): void {
