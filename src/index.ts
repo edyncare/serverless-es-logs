@@ -248,7 +248,23 @@ class ServerlessEsLogsPlugin {
         .withPrincipal({
           'Fn::Sub': 'logs.${AWS::Region}.amazonaws.com',
         })
-        .withSourceArn('*').build()
+        .withSourceArn({
+          'Fn::Join': [
+            '',
+            [
+              'arn:aws:logs:',
+              {
+                Ref: 'AWS::Region',
+              },
+              ':',
+              {
+                Ref: 'AWS::AccountId',
+              },
+              ':log-group:',
+              '*',
+            ],
+          ],
+        }).build()
       )
       .build();
 
