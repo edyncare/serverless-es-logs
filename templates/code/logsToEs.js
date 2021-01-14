@@ -121,7 +121,6 @@ function transform(payload) {
 
         var action = { "index": {} };
         action.index._index = indexName;
-        action.index._type = 'serverless-es-logs';
         action.index._id = id;
         
         bulkRequest.push({ id, action, source });
