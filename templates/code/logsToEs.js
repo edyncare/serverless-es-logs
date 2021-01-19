@@ -125,6 +125,7 @@ function transform(payload) {
         
         bulkRequest.push({ id, action, source });
     });
+
     return bulkRequest;
 }
 

@@ -34,7 +34,7 @@ export class SubscriptionFilterBuilder {
 
   public build(): ITemplate {
     const { DestinationArn, FilterPattern, LogGroupName } = this.template!.Properties;
-    if (!DestinationArn || !FilterPattern || !LogGroupName) {
+    if (!DestinationArn || FilterPattern === undefined || !LogGroupName) {
       throw new Error('Missing a required property.');
     }
     return this.template as ITemplate;

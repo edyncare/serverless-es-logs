@@ -131,7 +131,7 @@ class ServerlessEsLogsPlugin {
 
   private addApiGwCloudwatchSubscription(): void {
     const { esLogs } = this.custom();
-    const filterPattern = esLogs.apiGWFilterPattern || this.defaultApiGWFilterPattern;
+    const filterPattern = esLogs.apiGWFilterPattern === undefined ? this.defaultApiGWFilterPattern : esLogs.apiGWFilterPattern;
     const apiGwLogGroupLogicalId = 'ApiGatewayLogGroup';
     const template = this.serverless.service.provider.compiledCloudFormationTemplate;
 
